@@ -3,10 +3,16 @@ function createGrid(){
     const grid = document.createElement('div');
     grid.classList.add('grid');
     body.appendChild(grid);
-    const gridSquare = document.createElement('div');
-    gridSquare.classList.add('gridSquare');
-    gridSquare.textContent = "";
-    for(let i=0; i<16; i++){
-        grid.appendChild(gridSquare);
-    }
 }
+
+function addGridSquares(numSquares){
+    const grid = document.querySelector('.grid');
+    for(let i=0; i<numSquares; i++){
+        const gridSquare = document.createElement('div');
+        gridSquare.classList.add('gridSquare');
+        gridSquare.textContent = " ";
+        grid.appendChild(gridSquare);}
+}
+
+createGrid();
+addGridSquares(16);
