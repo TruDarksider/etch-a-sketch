@@ -1,0 +1,17 @@
+.grid{
+    width: 480px;
+    height: 480px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gridSquare {
+    margin: 0;
+    border: solid black 1px;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    flex: 1 0 auto;
+}
