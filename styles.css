@@ -1,5 +1,6 @@
 .grid{
     width: 480px;
+    border: solid black 1px;
     height: 480px;
     margin: 0;
     padding: 0;
@@ -9,10 +10,7 @@
 
 .gridSquare {
     margin: 0;
-    border: solid black 1px;
     display: flex;
-    width: 28px;
-    height: 28px;
     flex: 1 0 auto;
 }
 
