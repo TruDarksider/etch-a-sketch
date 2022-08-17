@@ -1,3 +1,16 @@
+body {
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .grid{
     width: 480px;
     border: solid black 1px;
