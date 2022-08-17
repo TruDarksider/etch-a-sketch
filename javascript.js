@@ -1,4 +1,5 @@
 let gridSize = 16;
+const gridHeight = 480;
 const body = document.querySelector('body');
 const grid = document.createElement('div');
 const gridSquare = document.createElement('div');
@@ -8,6 +9,7 @@ const clear = document.querySelector('#clear');
 clear.addEventListener('click', ()=>{
 destroyGrid();
 addGridSquares(gridSize);
+sizeSquares();
 })
 
 
@@ -20,7 +22,6 @@ function addGridSquares(numSquares){
     for(let i=0; i<(numSquares*numSquares); i++){
         const gridSquare = document.createElement('div');
         gridSquare.classList.add('gridSquare');
-        //gridSquare.textContent = "";
         grid.appendChild(gridSquare);
     }
 }
@@ -42,12 +43,22 @@ function resizeGrid(){
     if (gridSize>100){resizeGrid(); return}
     destroyGrid();
     addGridSquares(gridSize);
+    sizeSquares();
 }
 
 function destroyGrid(){
     while(grid.firstChild){grid.firstChild.remove();}
 }
 
+function sizeSquares(){
+    let squareSize = document.getElementsByClassName('gridSquare');
+    for(let i=0;i<squareSize.length;i++){
+        squareSize[i].style.height = gridHeight/gridSize+"px";
+        squareSize[i].style.width = gridHeight/gridSize+"px";
+    }
+}
+
 createGrid();
 addGridSquares(gridSize);
+sizeSquares();
 addHoverEvent();
