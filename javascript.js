@@ -2,15 +2,24 @@ let gridSize = 16;
 const gridHeight = 480;
 const body = document.querySelector('body');
 const grid = document.createElement('div');
-const gridSquare = document.createElement('div');
-const resize = document.querySelector('#resize');
-resize.addEventListener('click', ()=>{resizeGrid();})
+/* const resize = document.querySelector('#resize');
+resize.addEventListener('click', () => { resizeGrid(); }) */
+const slider = document.querySelector("#slider");
+slider.addEventListener("click", () => {
+  resizeGrid();
+});
+const sliderDisplay = document.getElementById("sliderValue");
+sliderDisplay.textContent = slider.value;
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', ()=>{
 destroyGrid();
 addGridSquares(gridSize);
 sizeSquares();
 })
+
+slider.oninput = function () {
+    sliderDisplay.textContent = this.value;
+}
 
 
 function createGrid(){
@@ -26,8 +35,10 @@ function addGridSquares(numSquares){
     }
 }
 
-function colorSquare(gridSquare){
-    gridSquare.classList.add('colored');
+function colorSquare(gridSquare) {
+    gridSquare.style.backgroundColor =
+      document.querySelector("#colorPicker").value;
+    //gridSquare.classList.add('colored');
 }
 
 function addHoverEvent(){
@@ -39,7 +50,9 @@ function addHoverEvent(){
 }
 
 function resizeGrid(){
-    gridSize = prompt('Enter new grid size less than 100 (will be square grid)');
+    gridSize = slider.value;
+    sliderDisplay.textContent = slider.value;
+    //gridSize = prompt('Enter new grid size less than 100 (will be square grid)');
     if (gridSize>100){resizeGrid(); return}
     destroyGrid();
     addGridSquares(gridSize);
